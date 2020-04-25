@@ -21,5 +21,35 @@ git clone https://github.com/Pruthvi-Sanghavi/dynamicPathPlanner.git
 cd ..
 catkin_make
 ```
+## Install Controllers
+Open a terminal and type,
+```
+sudo apt-get install ros-kinetic-joint-state-controller
+sudo apt-get install ros-kinetic-effort-controllers
+sudo apt-get install ros-kinetic-position-controllers
+
+```
+
+## Steps
+1. Make urdf. Import transmission and gazebo controller plugin.
+2. Make launch file for spawning the robot and spawning the controller.
+3. Make a config.yaml file.
+
+## Run Instructions
+Open a terminal, and type
+```
+roslaunch dynamicPathPlanner launcher.launch
+```
+Open another terminal and type,
+```
+roslaunch dynamicPathPlanner controller.launch 
+```
+
+Open another terminal and type,
+```
+rostopic list
+rostopic pub /<topic>
+```
+
 
 
