@@ -24,6 +24,7 @@ catkin_make
 ## Install Controllers
 Open a terminal and type,
 ```
+sudo apt-get install ros-kinetic-gazebo-ros-control
 sudo apt-get install ros-kinetic-joint-state-controller
 sudo apt-get install ros-kinetic-effort-controllers
 sudo apt-get install ros-kinetic-position-controllers
@@ -38,10 +39,14 @@ sudo apt-get install ros-kinetic-position-controllers
 ## Run Instructions
 Open a terminal, and type
 ```
+cd <workspace>
+source devel/setup.bash
 roslaunch dynamicPathPlanner launcher.launch
 ```
 Open another terminal and type,
 ```
+cd <workspace>
+source devel/setup.bash
 roslaunch dynamicPathPlanner controller.launch 
 ```
 
