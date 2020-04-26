@@ -1,6 +1,6 @@
 <launch>
 	<rosparam file="$(find dynamicPathPlanner)/config/config.yaml" command="load" />
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="/dynamicPathPlanner/joint_state_controller" args="--namespace=/dynamicPathPlanner joint_state_controller world_base_position_controller --shutdown-timeout 3"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="/dynamicPathPlanner/joint_state_controller" args="--namespace=/dynamicPathPlanner joint_state_controller world_base_1_position_controller world_base_2_position_controller --shutdown-timeout 3"/>
 <!-- converts joint states to TF transforms -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
         <remap from="/joint_states" to="/dynamicPathPlanner/joint_states" />
