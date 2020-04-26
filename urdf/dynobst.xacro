@@ -42,6 +42,17 @@
     	</plugin>
     </gazebo>
 
+<!--    <transmission name = "world_base_trans">-->
+<!--  		<type>transmission_interface/SimpleTransmission</type>-->
+<!--  		<joint name = "world_base">-->
+<!--  			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>-->
+<!--  		</joint>-->
+<!--  		<actuator name = "joint_motor">-->
+<!--  			<mechanicalReduction>1</mechanicalReduction>-->
+<!--  			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>-->
+<!--  		</actuator>-->
+<!--  	</transmission>-->
+
     <transmission name = "world_base_trans">
   		<type>transmission_interface/SimpleTransmission</type>
   		<joint name = "world_base">
