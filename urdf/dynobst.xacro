@@ -3,16 +3,24 @@
 <!--    <gazebo reference="base">-->
 <!--        <material>Gazebo/Black</material>-->
 <!--    </gazebo>-->
+     <gazebo>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      		<robotNamespace>/dynamicPathPlanner</robotNamespace>
+      		<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      		<legacyModeNS>true</legacyModeNS>
+    	</plugin>
+    </gazebo>
+<!--================================================================================================-->
     <link name="world"/>
 
-    <joint name ="world_base" type="prismatic">
+    <joint name ="world_base_1" type="prismatic">
         <axis xyz="0 1 0"/>
         <parent link="world"/>
-        <child link="base"/>
+        <child link="base_1"/>
         <limit effort="1.0" velocity="0.2" upper="10" lower="0"/>
     </joint>
 
-    <link name = "base">
+    <link name = "base_1">
         <inertial>
             <mass value="1.0"/>
             <origin xyz = "0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
@@ -34,35 +42,56 @@
         </visual>
     </link>
 
-    <gazebo>
-		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      		<robotNamespace>/dynamicPathPlanner</robotNamespace>
-      		<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-      		<legacyModeNS>true</legacyModeNS>
-    	</plugin>
-    </gazebo>
-
-<!--    <transmission name = "world_base_trans">-->
-<!--  		<type>transmission_interface/SimpleTransmission</type>-->
-<!--  		<joint name = "world_base">-->
-<!--  			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>-->
-<!--  		</joint>-->
-<!--  		<actuator name = "joint_motor">-->
-<!--  			<mechanicalReduction>1</mechanicalReduction>-->
-<!--  			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>-->
-<!--  		</actuator>-->
-<!--  	</transmission>-->
-
-    <transmission name = "world_base_trans">
+    <transmission name = "world_base_1_trans">
   		<type>transmission_interface/SimpleTransmission</type>
-  		<joint name = "world_base">
+  		<joint name = "world_base_1">
   			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   		</joint>
-  		<actuator name = "joint_motor">
+  		<actuator name = "joint_motor_1">
   			<mechanicalReduction>1</mechanicalReduction>
   			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
   		</actuator>
   	</transmission>
+    <!--=======================================================================================================-->
 
+     <joint name ="world_base_2" type="prismatic">
+        <axis xyz="0 1 0"/>
+        <parent link="world"/>
+        <child link="base_2"/>
+        <limit effort="1.0" velocity="0.2" upper="10" lower="0"/>
+    </joint>
+
+    <link name = "base_2">
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz = "0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <inertia ixx="1.0" ixy="0" ixz="0" iyy="1.0" iyz="0" izz="1.0"/>
+        </inertial>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.1" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="1.0 1.0 1.0"/>
+            </geometry>
+        </collision>
+
+        <visual>
+            <origin xyz="5.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <box size="1.0 1.0 1.0"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <transmission name = "world_base_2_trans">
+  		<type>transmission_interface/SimpleTransmission</type>
+  		<joint name = "world_base_2">
+  			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  		</joint>
+  		<actuator name = "joint_motor_2">
+  			<mechanicalReduction>1</mechanicalReduction>
+  			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  		</actuator>
+  	</transmission>
 
 </robot>
