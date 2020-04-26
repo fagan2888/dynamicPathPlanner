@@ -6,6 +6,7 @@
 <!--    <arg name="world_name" value="$(find dynamicPathPlanner)/worlds/map.world.xacro"/>-->
 
     </include>
+     <include file="$(find dynamicPathPlanner)/launch/controller.launch"/>
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find dynamicPathPlanner)/urdf/dynobst.xacro'"/>
 
     <arg name="x" default="0"/>
@@ -14,4 +15,7 @@
 
     <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
           args="-urdf -param robot_description -model dynamicPathPlanner -x $(arg x) -y $(arg y) -z $(arg z)" />
+<!--    <node pkg="dynamicPathPlanner" name="remote" file="rtRrt.py"/>-->
+    <node type="rtRrt.py" name="remote" pkg="dynamicPathPlanner"/>
+
 </launch>
