@@ -3,7 +3,7 @@
 
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch" >
-<!--    <arg name="world_name" value="$(find dynamicPathPlanner)/worlds/map.world.xacro"/>-->
+    <arg name="world_name" value="$(find dynamicPathPlanner)/worlds/map.world.xacro"/>
 
     </include>
      <include file="$(find dynamicPathPlanner)/launch/controller.launch"/>
