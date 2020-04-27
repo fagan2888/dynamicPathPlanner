@@ -10,8 +10,8 @@ def move():
     rospy.init_node('remote', anonymous=True)
     rate = rospy.Rate(10) # 10hz
     while not rospy.is_shutdown():
-        data1 = 1
-        data2 = 5
+        data1 = -10
+        data2 = -10
         rospy.loginfo(data1)
         rospy.loginfo(data2)
         pub1.publish(data1)
