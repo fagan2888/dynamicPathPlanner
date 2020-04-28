@@ -10,6 +10,11 @@ Repo for project 5 in path planning course.
 - Numpy
 - Matplotlib
 
+## Install ros stack
+```
+sudo apt-get install ros-kinetic-turtlebot-gazebo 
+```
+
 ## Build Instructions
 Open a terminal and type in the following,
 ```
