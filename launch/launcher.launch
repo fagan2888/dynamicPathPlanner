@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <launch>
 
-
     <include file="$(find gazebo_ros)/launch/empty_world.launch" >
-    <arg name="world_name" value="$(find dynamicPathPlanner)/worlds/map.world.xacro"/>
+        <arg name="world_name" value="$(find dynamicPathPlanner)/worlds/map.world.xacro"/>
 
     </include>
      <include file="$(find dynamicPathPlanner)/launch/controller.launch"/>
-    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find dynamicPathPlanner)/urdf/dynobst.xacro'"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find dynamicPathPlanner)/urdf/obstacles/dynobst.xacro'"/>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find dynamicPathPlanner)/urdf/turtlebot_description/robots/kobuki_hexagons_astra.urdf.xacro'"/>
 
     <arg name="x" default="0"/>
-    <arg name="y" default="0"/>
+    <arg name="y" default="2.0"/>
     <arg name="z" default="0.5"/>
 
     <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
