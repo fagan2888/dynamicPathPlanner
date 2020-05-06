@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# license removed for brevity
+
 # import rospy
 # from std_msgs.msg import String
 # from std_msgs.msg import Float64
@@ -29,23 +29,17 @@ def ros():
 def get_inputs(obstaclex, obstacley):
     print("Enter the start node coordinates separated by spaces: ")
     Xstart, Ystart = list(map(int, input().split()))
-    # Xstart, Ystart = obstaclex[0], obstacley[0]
-    # while True:
-    #     Xstart, Ystart = list(map(int, input().split()))
-    #     if Xstart in obstaclex:
-    #         if Ystart in obstacley:
-    #             # print("Invalid goal node")
-    #             continue
-    #     break
+
 
     Xgoal, Ygoal = random.randint(0, 2000), random.randint(0, 2000)
-    for i in range(0,2000):
-        if Xstart == obstaclex[i] and Ystart == obstacley[i]:
-            print("Input point in the obstacle space")
-            os.abort()
-        elif(Xstart != obstaclex[i] and Ystart != obstacley[i]):
-            # print("Starting node exploration")
-            pass
+    for i in range(0, 2000):
+        for j in range(0, 2000):
+            if Xstart == obstaclex[i] and Ystart == obstacley[j]:
+                print("obstacle space")
+                os.abort()
+            elif (Xstart != obstaclex[i] and Ystart != obstacley[j]):
+                 pass
+
 
     print("The goal node coordinate is: ", Xgoal, Ygoal)
     print("Starting exploration!!!")
@@ -60,13 +54,46 @@ def obstacle_map():
             if (x >= 0 and x <= 2000) and (y >= -10 and y <= 0):
                 obstaclex.append(x)
                 obstacley.append(y)
+
             if (x >= -10 and x <= 0) and (y >= 0 and y <= 2000):
                 obstaclex.append(x)
                 obstacley.append(y)
+
             if (x >= 2000 and x <= 2010) and (y >= 0 and y <= 2000):
                 obstaclex.append(x)
                 obstacley.append(y)
 
+            if (x >= -10 and x <= 2010) and (y >= 2000 and y <= 2010):
+                obstaclex.append(x)
+                obstacley.append(y)
+
+            if (x >= 500 and x <=1000) and (y>=1400 and y<=1450):
+                obstaclex.append(x)
+                obstacley.append(y)
+
+            if (x >= 1000 and x <= 1050) and (y>=1000 and y<=1450):
+                obstaclex.append(x)
+                obstacley.append(y)
+
+            if (x >= 500 and x <= 1500) and (y>=500 and y<=550):
+                obstaclex.append(x)
+                obstacley.append(y)
+
+            if (x >= 1500 and x <= 1700) and (y>= 1500 and y<=1700):
+                obstaclex.append(x)
+                obstacley.append(y)
+
+            if (x >= 200 and x <= 300) and (y>= 250 and y<=1750):
+                obstaclex.append(x)
+                obstacley.append(y)
+
+            if (x >= 1750 and x <= 1800) and (y>= 500 and y<=1000):
+                obstaclex.append(x)
+                obstacley.append(y)
+
+            if (x >= 1250 and x <= 1400) and (y>= 750 and y<=1250):
+                obstaclex.append(x)
+                obstacley.append(y)
 
     return obstaclex, obstacley
 
@@ -81,13 +108,9 @@ def plotMap(obstaclex,obstacley, Xgoal, Ygoal, Xstart, Ystart, X, Y, X_, Y_, Qra
 
     plot.xlim(-100, 2100)
     plot.ylim(-100, 2100)
-    plot.plot([xrect1,xrect2],[yrect1,yrect2], 'k-')
-    plot.plot([xrect1,xrect3],[yrect1,yrect3], 'k-')
-    plot.plot([xrect3, xrect4], [yrect3, yrect4], 'k-')
-    plot.plot([xrect2, xrect4], [yrect2, yrect4], 'k-')
     plot.scatter(Xstart, Ystart, marker= '*')
     plot.scatter(Xgoal, Ygoal, marker='+')
-    # plot.plot(obstaclex, obstacley, 'k')
+    # plot.scatter(obstaclex, obstacley)
     # plot.plot(X, Y,'r')
     # plot.plot(X_, Y_, 'g')
     # Qrandx = xstart
@@ -98,12 +121,12 @@ def plotMap(obstaclex,obstacley, Xgoal, Ygoal, Xstart, Ystart, X, Y, X_, Y_, Qra
         plot.plot([xstart, Qrandx[i]], [ystart, Qrandy[i]], 'r-')
 
     for k in range(len(Qrandx1)):
-        plot.plot([Qupdx[0], Qrandx1[k]], [Qupdy[0], Qrandy1[k]], 'r-')
+        plot.plot([Qupdx[0], Qrandx1[k]], [Qupdy[0], Qrandy1[k]], 'k-')
 
     ############### to be corrected ######################
     for j in range(len(Qupdx)):
         # if (calc_distance(Qrandx[j],Qupdx[j], Qrandy[j], Qupdy[j]) < 50):
-        plot.plot([Qrandx[j], Qupdx[j]], [Qrandy[j], Qupdy[j]], 'r-')
+        plot.plot([Qrandx[j], Qupdx[j]], [Qrandy[j], Qupdy[j]], 'b-')
     ######################################################
     plot.pause(0.1)
     plot.show()
@@ -162,12 +185,12 @@ def realtimeRRT(xstart, ystart):
     kmax = 0
     # generate random nodes
     while kmax < 10:
-        Xrandom, Yrandom = random.uniform(xstart - 200, xstart + 200), random.uniform(ystart - 200, ystart + 200)
+        Xrandom, Yrandom = random.uniform(xstart - 500, xstart + 500), random.uniform(ystart - 500, ystart + 500)
 
     # if math.sqrt((Xrandom - Xstart)**2 + (Yrandom-Ystart)**2) < 10:
         Qrandomx.append((Xrandom))
         Qrandomy.append((Yrandom))
-        if math.sqrt((Xrandom - xstart) ** 2 + (Yrandom - ystart) ** 2) < 100:
+        if math.sqrt((Xrandom - xstart) ** 2 + (Yrandom - ystart) ** 2) < 200:
             Xclosest = Xrandom
             Yclosest = Yrandom
             # debug
@@ -177,7 +200,7 @@ def realtimeRRT(xstart, ystart):
             Yupdated = Yclosest + random.uniform(0, 200)
             Qupdatedx.append(Xupdated)
             Qupdatedy.append(Yupdated)
-            Xrandom1, Yrandom1 = random.uniform( 0, 200), random.uniform( 0, 200)
+            Xrandom1, Yrandom1 =  Xupdated + random.uniform(0,200),  Yupdated + random.uniform( 0, 200)
             Qrandomx1.append((Xrandom1))
             Qrandomy1.append((Yrandom1))
 
