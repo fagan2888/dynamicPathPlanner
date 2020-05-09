@@ -58,6 +58,7 @@ cd <workspace>
 source devel/setup.bash
 roslaunch dynamicPathPlanner launcher.launch
 ```
+- Click on the screen to enter the start point and the goal point and press escape to exit.
 Open another terminal and type,
 ```
 cd <workspace>
