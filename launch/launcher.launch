@@ -2,13 +2,13 @@
 <launch>
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch" >
-        <arg name="world_name" value="$(find dynamicPathPlanner)/worlds/map.world.xacro"/>
+        <arg name="world_name" value="$(find dynamicPathPlanner)/worlds/turtle_world.world.xacro"/>
 
     </include>
      <include file="$(find dynamicPathPlanner)/launch/controller.launch"/>
 <!--    <param name="robot_description" command="$(find xacro)/xacro &#45;&#45;inorder '$(find dynamicPathPlanner)/urdf/obstacles/dynobst.xacro'"/>-->
     <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find dynamicPathPlanner)/urdf/turtlebot_description/robots/kobuki_hexagons_astra.urdf.xacro'"/>
-
+<!--    <param name="turtlebot_gazebo" command="$(find xacro)/xacro inorder '$(find dynamicPathPlanner)/urdf/obs    tacles/dynobst.xacro'"/>-->
     <arg name="x" default="0"/>
     <arg name="y" default="2.0"/>
     <arg name="z" default="0.5"/>
