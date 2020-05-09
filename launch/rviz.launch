@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <launch>
-	<param name="robot_description" command="cat '$(find dynamicPathPlanner)/urdf/dynobst.xacro'"/>
+	<param name="robot_description" command="cat '$(find dynamicPathPlanner)/urdf/kobuki/urdf/kobuki_gazebo.urdf.xacro'"/>
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
 		<param name="use_gui" value="True"/>
 	</node>
