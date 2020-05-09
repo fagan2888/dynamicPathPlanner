@@ -9,6 +9,7 @@ Repo for project 5 in path planning course.
 - ROS
 - Numpy
 - Matplotlib
+- pygame
 
 ## Install turtlebot stack
 ```
@@ -40,6 +41,15 @@ sudo apt-get install ros-kinetic-position-controllers
 1. Make urdf. Import transmission and gazebo controller plugin.
 2. Make launch file for spawning the robot and spawning the controller.
 3. Make a config.yaml file.
+
+## To run the code in python
+Open a terminal,
+
+```
+cd <workspace>/src/dynamicPathPlanner/src
+python rrtstar
+```
+
 
 ## Run Instructions
 Open a terminal, and type
