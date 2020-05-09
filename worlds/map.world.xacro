@@ -126,10 +126,10 @@
       <pose frame=''>7 -10 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>702 559000000</sim_time>
-      <real_time>618 514921836</real_time>
-      <wall_time>1588012590 562956263</wall_time>
-      <iterations>606535</iterations>
+      <sim_time>792 1000000</sim_time>
+      <real_time>105 759318604</real_time>
+      <wall_time>1588706585 520153731</wall_time>
+      <iterations>89442</iterations>
       <model name='asphalt_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -138,16 +138,6 @@
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='cube_20k'>
-        <pose frame=''>5.25802 -4.76127 0.05 2e-06 -2e-06 0.000401</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>5.25801 -4.76127 0.55 2e-06 -2e-06 0.000401</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-1.07994 -0.000456 11.799 -3.14071 -0.98169 3.14159</acceleration>
-          <wrench>-1.07994 -0.000456 11.799 0 -0 0</wrench>
         </link>
       </model>
       <model name='grey_wall'>
@@ -241,12 +231,12 @@
         </link>
       </model>
       <model name='wood_cube_2_5cm'>
-        <pose frame=''>3.1622 -4.9867 0.074543 -3.13752 0.000161 0.808678</pose>
+        <pose frame=''>3.16228 -4.98678 0.074181 -3.13327 0.000211 0.808674</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>3.16216 -4.98667 0.062043 -3.13752 0.000161 0.808678</pose>
+          <pose frame=''>3.1622 -4.98671 0.061681 -3.13327 0.000211 0.808674</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 4e-06 5e-06 0</acceleration>
+          <acceleration>0 0 0 4e-06 6e-06 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
@@ -256,7 +246,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>31.1882 7.11321 34.3746 0 0.749797 3.1162</pose>
+        <pose frame=''>24.458 4.87694 27.8516 0 0.749797 3.1162</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -682,55 +672,6 @@
         <gravity>1</gravity>
       </link>
       <pose frame=''>3.59557 -5.88146 0 0 -0 0</pose>
-    </model>
-    <model name='cube_20k'>
-      <link name='link'>
-        <pose frame=''>0 0 0.5 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://cube_20k/meshes/cube_20k.stl</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://cube_20k/meshes/cube_20k.stl</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-      </link>
-      <pose frame=''>-0.950673 -1.69493 0 0 -0 0</pose>
     </model>
   </world>
 </sdf>

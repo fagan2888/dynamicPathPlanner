@@ -10,6 +10,34 @@
       		<legacyModeNS>true</legacyModeNS>
     	</plugin>
     </gazebo>
+
+<!--    <gazebo>-->
+<!--        <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">-->
+<!--            <alwaysOn>true</alwaysOn>-->
+<!--            &lt;!&ndash;<updateRate>50.0</updateRate>&ndash;&gt;-->
+<!--            <bodyName>base_1</bodyName>-->
+<!--            <topicName>odom</topicName>-->
+<!--            <gaussianNoise>0.01</gaussianNoise>-->
+<!--            <frameName>world</frameName>-->
+<!--            <xyzOffsets>0 0 0</xyzOffsets>-->
+<!--            <rpyOffsets>0 0 0</rpyOffsets>-->
+<!--        </plugin>-->
+<!--    </gazebo>-->
+<!--    <gazebo>-->
+<!--        <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">-->
+<!--          <alwaysOn>true</alwaysOn>-->
+<!--          <updateRate>20</updateRate>-->
+<!--          <leftJoint>world_base_1</leftJoint>-->
+<!--          <rightJoint>world_base_1</rightJoint>-->
+<!--          <wheelSeparation>0.4</wheelSeparation>-->
+<!--          <wheelDiameter>0.2</wheelDiameter>-->
+<!--          <torque>0.1</torque>-->
+<!--          <commandTopic>cmd_vel</commandTopic>-->
+<!--          <odometryTopic>odom</odometryTopic>-->
+<!--          <odometryFrame>odom</odometryFrame>-->
+<!--          <robotBaseFrame>chassis</robotBaseFrame>-->
+<!--        </plugin>-->
+<!--    </gazebo>-->
 <!--================================================================================================-->
     <link name="world"/>
 

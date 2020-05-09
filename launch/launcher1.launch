@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<launch>
+
+    <include file="$(find turtlebot_gazebo)/launch/turtlebot_world.launch">
+<!--    <arg name="world_file" value="$(find turtle_walker)/worlds/walled.world.xml"/>-->
+	 <arg name="world_file" value="$(find dynamicPathPlanner)/worlds/turtle_world.world.xacro"/>
+    </include>
+
+    <arg name="x" default="0"/>
+    <arg name="y" default="2.0"/>
+    <arg name="z" default="0.5"/>
+
+    <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+          args="-urdf -param robot_description -x $(arg x) -y $(arg y) -z $(arg z)" />
+
+</launch>
